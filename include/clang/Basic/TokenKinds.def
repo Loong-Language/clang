@@ -259,6 +259,7 @@ PUNCTUATOR(caretcaret,            "^^")
 //   KEYBORLAND - This is a keyword if Borland extensions are enabled
 //   KEYCOROUTINES - This is a keyword if support for the C++ coroutines
 //                   TS is enabled
+//   KEYLOONG - This is a keyword if Loong extensions are enabled
 //   BOOLSUPPORT - This is a keyword if 'bool' is a built-in type
 //   HALFSUPPORT - This is a keyword if 'half' is a built-in type
 //   WCHARSUPPORT - This is a keyword if 'wchar_t' is a built-in type
@@ -312,6 +313,21 @@ KEYWORD(__func__                    , KEYALL)
 KEYWORD(__objc_yes                  , KEYALL)
 KEYWORD(__objc_no                   , KEYALL)
 
+// Loong: Keywords.
+KEYWORD(hmodule                     , KEYLOONG)
+KEYWORD(input                       , KEYLOONG)
+KEYWORD(output                      , KEYLOONG)
+KEYWORD(logic                       , KEYLOONG)
+KEYWORD(tri                         , KEYLOONG)
+KEYWORD(wire                        , KEYLOONG)
+KEYWORD(reg                         , KEYLOONG)
+KEYWORD(assign                      , KEYLOONG)
+KEYWORD(always                      , KEYLOONG)
+KEYWORD(always_ff                   , KEYLOONG)
+KEYWORD(always_latch                , KEYLOONG)
+KEYWORD(always_comb                 , KEYLOONG)
+KEYWORD(posedge                     , KEYLOONG)
+KEYWORD(negedge                     , KEYLOONG)
 
 // C++ 2.11p1: Keywords.
 KEYWORD(asm                         , KEYCXX|KEYGNU)
