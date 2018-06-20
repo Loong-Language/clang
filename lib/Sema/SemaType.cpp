@@ -1600,8 +1600,12 @@ static QualType ConvertDeclSpecToType(TypeProcessingState &state) {
     declarator.setInvalidType(true);
     break;
 
+  // Loong types.
   case DeclSpec::TST_logic:
     Result = Context.LogicTy;
+    break;
+  case DeclSpec::TST_input:
+    Result = Context.InputTy;
     break;
   }
 

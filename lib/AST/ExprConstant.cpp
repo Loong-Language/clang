@@ -7340,7 +7340,9 @@ EvaluateBuiltinClassifyType(QualType T, const LangOptions &LangOpts) {
       return GCCTypeClass::Void;
 
     case BuiltinType::Bool:
+    // Loong types.
     case BuiltinType::Logic:
+    case BuiltinType::Input:
       return GCCTypeClass::Bool;
 
     case BuiltinType::Char_U:

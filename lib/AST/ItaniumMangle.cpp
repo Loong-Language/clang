@@ -2488,7 +2488,8 @@ void CXXNameMangler::mangleType(const BuiltinType *T) {
   //                 ::= Ds # char16_t
   //                 ::= Dn # std::nullptr_t (i.e., decltype(nullptr))
   //                 ::= u <source-name>    # vendor extended type
-  //                 ::= l  # logic
+  //                 ::= l  # Loong logic
+  //                 ::= i  # Loong input
   std::string type_name;
   switch (T->getKind()) {
   case BuiltinType::Void:
@@ -2601,8 +2602,12 @@ void CXXNameMangler::mangleType(const BuiltinType *T) {
   case BuiltinType::NullPtr:
     Out << "Dn";
     break;
+  // Loong types.
   case BuiltinType::Logic:
     Out << 'l';
+    break;
+  case BuiltinType::Input:
+    Out << 'i';
     break;
 
 #define BUILTIN_TYPE(Id, SingletonId)

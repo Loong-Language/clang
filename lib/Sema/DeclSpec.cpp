@@ -356,7 +356,9 @@ bool Declarator::isDeclarationOfFunction() const {
     case TST_unspecified:
     case TST_void:
     case TST_wchar:
+    // Loong types.
     case TST_logic:
+    case TST_input:
 #define GENERIC_IMAGE_TYPE(ImgType, Id) case TST_##ImgType##_t:
 #include "clang/Basic/OpenCLImageTypes.def"
       return false;
@@ -542,7 +544,9 @@ const char *DeclSpec::getSpecifierName(DeclSpec::TST T,
 #include "clang/Basic/OpenCLImageTypes.def"
   case DeclSpec::TST_error:       return "(error)";
 
+  // Loong types.
   case DeclSpec::TST_logic:        return "logic";
+  case DeclSpec::TST_input:        return "input";
   }
   llvm_unreachable("Unknown typespec!");
 }

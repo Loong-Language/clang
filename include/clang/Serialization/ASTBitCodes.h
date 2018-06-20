@@ -1018,6 +1018,9 @@ namespace serialization {
 
       /// \brief The 'logic' type in Loong
       PREDEF_TYPE_LOGIC_ID = 136,
+
+      /// \brief The 'input' type in Loong
+      PREDEF_TYPE_INPUT_ID = 137,
     };
 
     /// The number of predefined type IDs that are reserved for

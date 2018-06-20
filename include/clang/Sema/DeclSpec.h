@@ -310,6 +310,7 @@ public:
   static const TST TST_error = clang::TST_error;
   // Loong types
   static const TST TST_logic = clang::TST_logic;
+  static const TST TST_input = clang::TST_input;
 
   // type-qualifiers
   enum TQ {   // NOTE: These flags must be kept in sync with Qualifiers::TQ.
