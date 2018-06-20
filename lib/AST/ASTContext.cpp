@@ -6348,7 +6348,7 @@ static char getObjCEncodingForPrimitiveKind(const ASTContext *C,
 
     // Loong types.
     case BuiltinType::Logic: return 'l';
-    case BuiltinType::Input: return 'i';
+    case BuiltinType::Input: return 'I';
     }
     llvm_unreachable("invalid BuiltinType::Kind value");
 }
@@ -9081,9 +9081,9 @@ static QualType DecodeTypeFromStr(const char *&Str, const ASTContext &Context,
            "Bad modifiers used with 'l'!");
      Type = Context.LogicTy;
      break;
-  case 'i':
+  case 'I':
     assert(HowLong == 0 && !Signed && !Unsigned &&
-           "Bad modifiers used with 'i'!");
+           "Bad modifiers used with 'I'!");
      Type = Context.InputTy;
      break;
 
