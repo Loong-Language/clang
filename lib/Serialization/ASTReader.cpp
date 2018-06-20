@@ -6962,6 +6962,9 @@ QualType ASTReader::GetType(TypeID ID) {
     case PREDEF_TYPE_ARC_UNBRIDGED_CAST:
       T = Context.ARCUnbridgedCastTy;
       break;
+    case PREDEF_TYPE_LOGIC_ID:
+      T = Context.LogicTy;
+      break;
     case PREDEF_TYPE_BUILTIN_FN:
       T = Context.BuiltinFnTy;
       break;

@@ -1599,6 +1599,10 @@ static QualType ConvertDeclSpecToType(TypeProcessingState &state) {
     Result = Context.IntTy;
     declarator.setInvalidType(true);
     break;
+
+  case DeclSpec::TST_logic:
+    Result = Context.LogicTy;
+    break;
   }
 
   if (S.getLangOpts().OpenCL &&

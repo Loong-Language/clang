@@ -1267,6 +1267,9 @@ void ASTContext::InitBuiltinTypes(const TargetInfo &Target,
   // half type (OpenCL 6.1.1.1) / ARM NEON __fp16
   InitBuiltinType(HalfTy, BuiltinType::Half);
 
+  // Loong: logic and other types
+  InitBuiltinType(LogicTy, BuiltinType::Logic);
+
   // Builtin type used to help define __builtin_va_list.
   VaListTagDecl = nullptr;
 }
@@ -5422,6 +5425,7 @@ unsigned ASTContext::getIntegerRank(const Type *T) const {
 
   switch (cast<BuiltinType>(T)->getKind()) {
   default: llvm_unreachable("getIntegerRank(): not a built-in integer");
+  case BuiltinType::Logic:
   case BuiltinType::Bool:
     return 1 + (getIntWidth(BoolTy) << 3);
   case BuiltinType::Char_S:
@@ -6337,6 +6341,9 @@ static char getObjCEncodingForPrimitiveKind(const ASTContext *C,
     case BuiltinType::KIND:
 #include "clang/AST/BuiltinTypes.def"
       llvm_unreachable("invalid builtin type for @encode");
+
+    // Loong types.
+    case BuiltinType::Logic: return 'l';
     }
     llvm_unreachable("invalid BuiltinType::Kind value");
 }
@@ -9063,6 +9070,11 @@ static QualType DecodeTypeFromStr(const char *&Str, const ASTContext &Context,
   // Read the base type.
   switch (*Str++) {
   default: llvm_unreachable("Unknown builtin type letter!");
+  case 'l':
+    assert(HowLong == 0 && !Signed && !Unsigned &&
+           "Bad modifiers used with 'l'!");
+     Type = Context.LogicTy;
+     break;
   case 'v':
     assert(HowLong == 0 && !Signed && !Unsigned &&
            "Bad modifiers used with 'v'!");

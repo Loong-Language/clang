@@ -96,6 +96,9 @@ UNSIGNED_TYPE(ULongLong, UnsignedLongLongTy)
 // '__uint128_t'
 UNSIGNED_TYPE(UInt128, UnsignedInt128Ty)
 
+// 'logic' in Loong
+UNSIGNED_TYPE(Logic, LogicTy)
+
 //===- Signed Types -------------------------------------------------------===//
 
 // 'char' for targets where it's signed

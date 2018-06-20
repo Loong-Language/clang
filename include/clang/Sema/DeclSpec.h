@@ -308,6 +308,8 @@ public:
   static const TST TST_##ImgType##_t = clang::TST_##ImgType##_t;
 #include "clang/Basic/OpenCLImageTypes.def"
   static const TST TST_error = clang::TST_error;
+  // Loong types
+  static const TST TST_logic = clang::TST_logic;
 
   // type-qualifiers
   enum TQ {   // NOTE: These flags must be kept in sync with Qualifiers::TQ.

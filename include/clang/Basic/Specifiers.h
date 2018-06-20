@@ -80,7 +80,9 @@ namespace clang {
     TST_atomic,           // C11 _Atomic
 #define GENERIC_IMAGE_TYPE(ImgType, Id) TST_##ImgType##_t, // OpenCL image types
 #include "clang/Basic/OpenCLImageTypes.def"
-    TST_error // erroneous type
+    TST_error, // erroneous type
+    // Loong types
+    TST_logic
   };
 
   /// Structure that packs information about the type specifiers that

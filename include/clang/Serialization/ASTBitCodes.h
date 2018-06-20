@@ -1015,6 +1015,9 @@ namespace serialization {
 #define IMAGE_TYPE(ImgType, Id, SingletonId, Access, Suffix) \
       PREDEF_TYPE_##Id##_ID,
 #include "clang/Basic/OpenCLImageTypes.def"
+
+      /// \brief The 'logic' type in Loong
+      PREDEF_TYPE_LOGIC_ID = 136,
     };
 
     /// The number of predefined type IDs that are reserved for

@@ -208,6 +208,9 @@ serialization::TypeIdxFromBuiltin(const BuiltinType *BT) {
   case BuiltinType::ObjCSel:
     ID = PREDEF_TYPE_OBJC_SEL;
     break;
+  case BuiltinType::Logic:
+    ID = PREDEF_TYPE_LOGIC_ID;
+    break;
 #define IMAGE_TYPE(ImgType, Id, SingletonId, Access, Suffix) \
   case BuiltinType::Id: \
     ID = PREDEF_TYPE_##Id##_ID; \

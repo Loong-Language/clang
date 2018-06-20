@@ -1862,6 +1862,7 @@ void MicrosoftCXXNameMangler::mangleType(const BuiltinType *T, Qualifiers,
   case BuiltinType::Bool:
     Out << "_N";
     break;
+  case BuiltinType::Logic:
   case BuiltinType::Char16:
     Out << "_S";
     break;

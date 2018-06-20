@@ -3634,6 +3634,10 @@ void Parser::ParseDeclarationSpecifiers(DeclSpec &DS,
       isInvalid = DS.SetTypeSpecType(DeclSpec::TST_char32, Loc, PrevSpec,
                                      DiagID, Policy);
       break;
+    case tok::kw_logic:
+      isInvalid = DS.SetTypeSpecType(DeclSpec::TST_logic, Loc, PrevSpec,
+                                     DiagID, Policy);
+      break;
     case tok::kw_bool:
     case tok::kw__Bool:
       if (Tok.is(tok::kw_bool) &&
@@ -4737,6 +4741,9 @@ bool Parser::isTypeSpecifierQualifier() {
 #define GENERIC_IMAGE_TYPE(ImgType, Id) case tok::kw_##ImgType##_t:
 #include "clang/Basic/OpenCLImageTypes.def"
 
+    // Loong type specifiers such as logic
+  case tok::kw_logic:
+
     // struct-or-union-specifier (C99) or class-specifier (C++)
   case tok::kw_class:
   case tok::kw_struct:
@@ -4895,6 +4902,9 @@ bool Parser::isDeclarationSpecifier(bool DisambiguatingWithExpression) {
   case tok::kw__Decimal64:
   case tok::kw__Decimal128:
   case tok::kw___vector:
+
+    // Loong type specifiers such as logic
+  case tok::kw_logic:
 
     // struct-or-union-specifier (C99) or class-specifier (C++)
   case tok::kw_class:
@@ -6897,6 +6907,7 @@ bool Parser::TryAltiVecVectorTokenOutOfLine() {
   case tok::kw_float:
   case tok::kw_double:
   case tok::kw_bool:
+  case tok::kw_logic:
   case tok::kw___bool:
   case tok::kw___pixel:
     Tok.setKind(tok::kw___vector);
@@ -6931,6 +6942,7 @@ bool Parser::TryAltiVecTokenOutOfLine(DeclSpec &DS, SourceLocation Loc,
     case tok::kw_float:
     case tok::kw_double:
     case tok::kw_bool:
+    case tok::kw_logic:
     case tok::kw___bool:
     case tok::kw___pixel:
       isInvalid = DS.SetTypeAltiVecVector(true, Loc, PrevSpec, DiagID, Policy);
