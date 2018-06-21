@@ -249,6 +249,9 @@ class ASTContext : public RefCountedBase<ASTContext> {
   llvm::DenseMap<const MaterializeTemporaryExpr *, APValue *>
     MaterializedTemporaryValues;
 
+  /// Loong DeclSpec.
+  QualType LoongDeclSpec = LogicTy;
+
   /// Representation of a "canonical" template template parameter that
   /// is used in canonical template names.
   class CanonicalTemplateTemplateParm : public llvm::FoldingSetNode {
@@ -1034,6 +1037,7 @@ public:
   CanQualType OCLSamplerTy, OCLEventTy, OCLClkEventTy;
   CanQualType OCLQueueTy, OCLReserveIDTy;
   CanQualType OMPArraySectionTy;
+  // Loong types.
   CanQualType LogicTy;
   CanQualType InputTy;
 
@@ -1096,6 +1100,10 @@ public:
 
   /// Retrieve the declaration for the 128-bit unsigned integer type.
   TypedefDecl *getUInt128Decl() const;
+
+  /// Loong DeclSpec.
+  QualType getLoongDeclSpec() const { return LoongDeclSpec; }
+  void setLoongDeclSpec(const QualType type) { LoongDeclSpec = type; }
 
   //===--------------------------------------------------------------------===//
   //                           Type Constructors

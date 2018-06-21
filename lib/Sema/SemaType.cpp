@@ -1344,13 +1344,7 @@ static QualType ConvertDeclSpecToType(TypeProcessingState &state) {
         declarator.setInvalidType(true);
       } else {
         if (S.getLangOpts().Loong) {
-          // FIXME: hmodule sillyfunction(input  logic a, b, c,
-          //                                              ^-- LogicTy
-          //                              input  reg s, t,
-          //                                            ^-- RegTy
-          const char *FirstSpec = DeclSpec::getSpecifierName(
-			  DS.getTypeSpecType(), Context.getPrintingPolicy());
-          Result = Context.LogicTy;
+          Result = Context.getLoongDeclSpec();
           break;
         }
         S.Diag(DeclLoc, diag::ext_missing_type_specifier)
