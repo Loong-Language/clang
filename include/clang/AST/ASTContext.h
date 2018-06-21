@@ -1040,6 +1040,7 @@ public:
   // Loong types.
   CanQualType LogicTy;
   CanQualType InputTy;
+  CanQualType OutputTy;
 
   // Types for deductions in C++0x [stmt.ranged]'s desugaring. Built on demand.
   mutable QualType AutoDeductTy;     // Deduction against 'auto'.

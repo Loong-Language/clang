@@ -2760,6 +2760,8 @@ StringRef BuiltinType::getName(const PrintingPolicy &Policy) const {
     return "logic";
   case Input:
     return "input";
+  case Output:
+    return "output";
   }
 
   llvm_unreachable("Invalid builtin type.");

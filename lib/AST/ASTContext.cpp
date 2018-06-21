@@ -1270,6 +1270,7 @@ void ASTContext::InitBuiltinTypes(const TargetInfo &Target,
   // Loong: logic and other types
   InitBuiltinType(LogicTy, BuiltinType::Logic);
   InitBuiltinType(InputTy, BuiltinType::Input);
+  InitBuiltinType(OutputTy, BuiltinType::Output);
 
   // Builtin type used to help define __builtin_va_list.
   VaListTagDecl = nullptr;
@@ -5429,6 +5430,7 @@ unsigned ASTContext::getIntegerRank(const Type *T) const {
   // Loong types.
   case BuiltinType::Logic:
   case BuiltinType::Input:
+  case BuiltinType::Output:
 
   case BuiltinType::Bool:
     return 1 + (getIntWidth(BoolTy) << 3);
@@ -6349,6 +6351,7 @@ static char getObjCEncodingForPrimitiveKind(const ASTContext *C,
     // Loong types.
     case BuiltinType::Logic: return 'l';
     case BuiltinType::Input: return 'I';
+    case BuiltinType::Output: return 'o';
     }
     llvm_unreachable("invalid BuiltinType::Kind value");
 }
@@ -9079,13 +9082,18 @@ static QualType DecodeTypeFromStr(const char *&Str, const ASTContext &Context,
   case 'l':
     assert(HowLong == 0 && !Signed && !Unsigned &&
            "Bad modifiers used with 'l'!");
-     Type = Context.LogicTy;
-     break;
+    Type = Context.LogicTy;
+    break;
   case 'I':
     assert(HowLong == 0 && !Signed && !Unsigned &&
            "Bad modifiers used with 'I'!");
-     Type = Context.InputTy;
-     break;
+    Type = Context.InputTy;
+    break;
+  case 'o':
+    assert(HowLong == 0 && !Signed && !Unsigned &&
+           "Bad modifiers used with 'o'!");
+    Type = Context.OutputTy;
+    break;
 
   case 'v':
     assert(HowLong == 0 && !Signed && !Unsigned &&

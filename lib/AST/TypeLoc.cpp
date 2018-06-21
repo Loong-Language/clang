@@ -331,6 +331,8 @@ TypeSpecifierType BuiltinTypeLoc::getWrittenTypeSpec() const {
     return TST_logic;
   case BuiltinType::Input:
     return TST_input;
+  case BuiltinType::Output:
+    return TST_output;
 
   case BuiltinType::UChar:
   case BuiltinType::UShort:

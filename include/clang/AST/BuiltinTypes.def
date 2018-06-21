@@ -102,6 +102,9 @@ UNSIGNED_TYPE(Logic, LogicTy)
 // 'input' in Loong
 UNSIGNED_TYPE(Input, InputTy)
 
+// 'output' in Loong
+UNSIGNED_TYPE(Output, OutputTy)
+
 //===- Signed Types -------------------------------------------------------===//
 
 // 'char' for targets where it's signed

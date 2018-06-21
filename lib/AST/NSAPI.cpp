@@ -492,6 +492,7 @@ NSAPI::getNSNumberFactoryMethodKind(QualType T) const {
   // Loong types.
   case BuiltinType::Logic:
   case BuiltinType::Input:
+  case BuiltinType::Output:
     break;
   }
   

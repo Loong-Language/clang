@@ -853,6 +853,7 @@ bool Sema::containsUnexpandedParameterPacks(Declarator &D) {
   // Loong types.
   case TST_logic:
   case TST_input:
+  case TST_output:
     break;
   }
 

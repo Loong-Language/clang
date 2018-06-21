@@ -1611,6 +1611,9 @@ static QualType ConvertDeclSpecToType(TypeProcessingState &state) {
   case DeclSpec::TST_input:
     Result = Context.InputTy;
     break;
+  case DeclSpec::TST_output:
+    Result = Context.OutputTy;
+    break;
   }
 
   if (S.getLangOpts().OpenCL &&
