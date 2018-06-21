@@ -416,6 +416,9 @@ private:
 
   DeclSpec(const DeclSpec &) = delete;
   void operator=(const DeclSpec &) = delete;
+
+  bool isLoongType(const char *PrevSpec);
+
 public:
   static bool isDeclRep(TST T) {
     return (T == TST_enum || T == TST_struct ||
