@@ -1024,9 +1024,6 @@ namespace serialization {
 
       /// \brief The 'output' type in Loong
       PREDEF_TYPE_OUTPUT_ID = 138,
-
-      /// \brief The 'assign' type in Loong
-      PREDEF_TYPE_ASSIGN_ID = 139,
     };
 
     /// The number of predefined type IDs that are reserved for

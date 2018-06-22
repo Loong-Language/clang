@@ -105,9 +105,6 @@ UNSIGNED_TYPE(Input, InputTy)
 // 'output' in Loong
 UNSIGNED_TYPE(Output, OutputTy)
 
-// 'assign' in Loong
-UNSIGNED_TYPE(Assign, AssignTy)
-
 //===- Signed Types -------------------------------------------------------===//
 
 // 'char' for targets where it's signed

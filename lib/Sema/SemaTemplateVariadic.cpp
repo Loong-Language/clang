@@ -854,7 +854,6 @@ bool Sema::containsUnexpandedParameterPacks(Declarator &D) {
   case TST_logic:
   case TST_input:
   case TST_output:
-  case TST_assign:
     break;
   }
 

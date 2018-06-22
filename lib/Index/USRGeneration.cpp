@@ -668,9 +668,6 @@ void USRGenerator::VisitType(QualType T) {
           c = 'I'; break;
         case BuiltinType::Output:
           c = 'o'; break;
-        case BuiltinType::Assign:
-          c = 'S'; break;
-
         case BuiltinType::ULongLong:
           c = 'k'; break;
         case BuiltinType::UInt128:

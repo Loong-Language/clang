@@ -2726,7 +2726,6 @@ static bool TypeInfoIsInStandardLibrary(const BuiltinType *Ty) {
     case BuiltinType::Logic:
     case BuiltinType::Input:
     case BuiltinType::Output:
-    case BuiltinType::Assign:
       return true;
 
 #define IMAGE_TYPE(ImgType, Id, SingletonId, Access, Suffix) \
