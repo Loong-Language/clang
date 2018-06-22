@@ -657,6 +657,7 @@ bool PrintfSpecifier::fixType(QualType QT, const LangOptions &LangOpt,
   case BuiltinType::Logic:
   case BuiltinType::Input:
   case BuiltinType::Output:
+  case BuiltinType::Assign:
 
   case BuiltinType::Float16:
   case BuiltinType::Float128:

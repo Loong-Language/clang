@@ -661,6 +661,7 @@ llvm::DIType *CGDebugInfo::CreateType(const BuiltinType *BT) {
   case BuiltinType::Logic:
   case BuiltinType::Input:
   case BuiltinType::Output:
+  case BuiltinType::Assign:
 
   case BuiltinType::UChar:
   case BuiltinType::Char_U:

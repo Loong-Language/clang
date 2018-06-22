@@ -7344,6 +7344,7 @@ EvaluateBuiltinClassifyType(QualType T, const LangOptions &LangOpts) {
     case BuiltinType::Logic:
     case BuiltinType::Input:
     case BuiltinType::Output:
+    case BuiltinType::Assign:
       return GCCTypeClass::Bool;
 
     case BuiltinType::Char_U:
