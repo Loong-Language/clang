@@ -12239,7 +12239,7 @@ static void DiagnoseLogicalAndInLogicalOrRHS(Sema &S, SourceLocation OpLoc,
 static void DiagnoseBitwiseOpInBitwiseOp(Sema &S, BinaryOperatorKind Opc,
                                          SourceLocation OpLoc, Expr *SubExpr) {
   if (BinaryOperator *Bop = dyn_cast<BinaryOperator>(SubExpr)) {
-    if (Bop->isBitwiseOp() && Bop->getOpcode() < Opc) {
+    if (Bop->isBitwiseOp() && Bop->getOpcode() < Opc && !S.LangOpts.Loong) {
       S.Diag(Bop->getOperatorLoc(), diag::warn_bitwise_op_in_bitwise_op)
         << Bop->getOpcodeStr() << BinaryOperator::getOpcodeStr(Opc)
         << Bop->getSourceRange() << OpLoc;
