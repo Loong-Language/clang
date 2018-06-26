@@ -774,7 +774,6 @@ bool DeclSpec::SetTypeSpecType(TST T, SourceLocation Loc,
       DiagID = diag::err_invalid_decl_spec_combination;
       return true;
     }
-    return false;
   }
   TSTLoc = Loc;
   TSTNameLoc = Loc;

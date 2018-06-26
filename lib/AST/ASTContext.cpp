@@ -1766,6 +1766,9 @@ TypeInfo ASTContext::getTypeInfoImpl(const Type *T) const {
       Width = 0;
       Align = 8;
       break;
+    // Loong types.
+    case BuiltinType::Logic:
+
     case BuiltinType::Bool:
       Width = Target->getBoolWidth();
       Align = Target->getBoolAlign();
