@@ -102,6 +102,11 @@
 #  define LANGBUILTIN(ID, TYPE, ATTRS, BUILTIN_LANG) BUILTIN(ID, TYPE, ATTRS)
 #endif
 
+// Loong builtins:
+BUILTIN(__assign, "bb", "")
+BUILTIN(__nonblock_assign, "bb", "")
+BUILTIN(__block_assign, "bb", "")
+
 // Standard libc/libm functions:
 BUILTIN(__builtin_atan2 , "ddd"  , "Fne")
 BUILTIN(__builtin_atan2f, "fff"  , "Fne")

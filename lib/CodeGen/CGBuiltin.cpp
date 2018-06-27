@@ -2702,6 +2702,27 @@ RValue CodeGenFunction::EmitBuiltinExpr(const FunctionDecl *FD,
     StringRef Str = cast<StringLiteral>(AnnotationStrExpr)->getString();
     return RValue::get(EmitAnnotationCall(F, AnnVal, Str, E->getExprLoc()));
   }
+
+  // Loong builtins.
+  case Builtin::BI__assign: {
+    Value *CombinationalLogic = EmitScalarExpr(E->getArg(0));
+    Value *F = CGM.getIntrinsic(Intrinsic::__assign,
+		    llvm::makeArrayRef(CombinationalLogic->getType()));
+    return RValue::get(Builder.CreateCall(F, CombinationalLogic));
+  }
+  case Builtin::BI__nonblock_assign: {
+    Value *SequentialLogic = EmitScalarExpr(E->getArg(0));
+    Value *F = CGM.getIntrinsic(Intrinsic::__nonblock_assign,
+		    llvm::makeArrayRef(SequentialLogic->getType()));
+    return RValue::get(Builder.CreateCall(F, SequentialLogic));
+  }
+  case Builtin::BI__block_assign: {
+    Value *SequentialLogic = EmitScalarExpr(E->getArg(0));
+    Value *F = CGM.getIntrinsic(Intrinsic::__block_assign,
+		    llvm::makeArrayRef(SequentialLogic->getType()));
+    return RValue::get(Builder.CreateCall(F, SequentialLogic));
+  }
+
   case Builtin::BI__builtin_addcb:
   case Builtin::BI__builtin_addcs:
   case Builtin::BI__builtin_addc:
