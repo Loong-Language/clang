@@ -2710,6 +2710,12 @@ RValue CodeGenFunction::EmitBuiltinExpr(const FunctionDecl *FD,
 		    llvm::makeArrayRef(CombinationalLogic->getType()));
     return RValue::get(Builder.CreateCall(F, CombinationalLogic));
   }
+  case Builtin::BI__always: {
+    Value *SensitivityList = EmitVAListRef(E->getArg(0));
+    Value *F = CGM.getIntrinsic(Intrinsic::__always,
+		    llvm::makeArrayRef(SensitivityList->getType()));
+    return RValue::get(Builder.CreateCall(F, SensitivityList));
+  }
   case Builtin::BI__nonblock_assign: {
     Value *SequentialLogic = EmitScalarExpr(E->getArg(0));
     Value *F = CGM.getIntrinsic(Intrinsic::__nonblock_assign,
