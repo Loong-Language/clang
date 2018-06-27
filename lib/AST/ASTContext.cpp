@@ -1767,6 +1767,7 @@ TypeInfo ASTContext::getTypeInfoImpl(const Type *T) const {
       break;
     // Loong types.
     case BuiltinType::Input:
+    case BuiltinType::Output:
 
     case BuiltinType::Bool:
       Width = Target->getBoolWidth();
