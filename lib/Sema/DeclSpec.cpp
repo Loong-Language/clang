@@ -359,6 +359,7 @@ bool Declarator::isDeclarationOfFunction() const {
     // Loong types.
     case TST_input:
     case TST_output:
+    case TST_wire:
 #define GENERIC_IMAGE_TYPE(ImgType, Id) case TST_##ImgType##_t:
 #include "clang/Basic/OpenCLImageTypes.def"
       return false;
@@ -547,6 +548,7 @@ const char *DeclSpec::getSpecifierName(DeclSpec::TST T,
   // Loong types.
   case DeclSpec::TST_input:        return "input";
   case DeclSpec::TST_output:       return "output";
+  case DeclSpec::TST_wire:         return "wire";
   }
   llvm_unreachable("Unknown typespec!");
 }

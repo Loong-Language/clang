@@ -2490,6 +2490,7 @@ void CXXNameMangler::mangleType(const BuiltinType *T) {
   //                 ::= u <source-name>    # vendor extended type
   //                 ::= I  # Loong input
   //                 ::= o  # Loong output
+  //                 ::= W  # Loong wire
   std::string type_name;
   switch (T->getKind()) {
   case BuiltinType::Void:
@@ -2608,6 +2609,9 @@ void CXXNameMangler::mangleType(const BuiltinType *T) {
     break;
   case BuiltinType::Output:
     Out << 'o';
+    break;
+  case BuiltinType::Wire:
+    Out << 'W';
     break;
 
 #define BUILTIN_TYPE(Id, SingletonId)

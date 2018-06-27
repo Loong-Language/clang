@@ -1865,6 +1865,7 @@ void MicrosoftCXXNameMangler::mangleType(const BuiltinType *T, Qualifiers,
   // Loong types.
   case BuiltinType::Input:
   case BuiltinType::Output:
+  case BuiltinType::Wire:
 
   case BuiltinType::Char16:
     Out << "_S";

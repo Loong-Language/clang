@@ -1611,6 +1611,9 @@ static QualType ConvertDeclSpecToType(TypeProcessingState &state) {
   case DeclSpec::TST_output:
     Result = Context.OutputTy;
     break;
+  case DeclSpec::TST_wire:
+    Result = Context.WireTy;
+    break;
   }
 
   if (S.getLangOpts().OpenCL &&

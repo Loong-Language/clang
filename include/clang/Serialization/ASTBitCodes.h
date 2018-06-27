@@ -1021,6 +1021,9 @@ namespace serialization {
 
       /// \brief The 'output' type in Loong
       PREDEF_TYPE_OUTPUT_ID = 169,
+
+      /// \brief The 'wire' type in Loong
+      PREDEF_TYPE_WIRE_ID = 170,
     };
 
     /// The number of predefined type IDs that are reserved for

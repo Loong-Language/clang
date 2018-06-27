@@ -83,7 +83,8 @@ namespace clang {
     TST_error, // erroneous type
     // Loong types
     TST_input,
-    TST_output
+    TST_output,
+    TST_wire
   };
 
   /// Structure that packs information about the type specifiers that

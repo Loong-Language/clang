@@ -467,6 +467,7 @@ llvm::Type *CodeGenTypes::ConvertType(QualType T) {
     // Loong types.
     case BuiltinType::Input:
     case BuiltinType::Output:
+    case BuiltinType::Wire:
       ResultType = llvm::IntegerType::get(getLLVMContext(),
                                  static_cast<unsigned>(Context.getTypeSize(T)));
       break;

@@ -2725,6 +2725,7 @@ static bool TypeInfoIsInStandardLibrary(const BuiltinType *Ty) {
     // Loong types.
     case BuiltinType::Input:
     case BuiltinType::Output:
+    case BuiltinType::Wire:
       return true;
 
 #define IMAGE_TYPE(ImgType, Id, SingletonId, Access, Suffix) \

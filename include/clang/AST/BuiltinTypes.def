@@ -102,6 +102,9 @@ UNSIGNED_TYPE(Input, InputTy)
 // 'output' in Loong
 UNSIGNED_TYPE(Output, OutputTy)
 
+// 'wire' in Loong
+UNSIGNED_TYPE(Wire, WireTy)
+
 //===- Signed Types -------------------------------------------------------===//
 
 // 'char' for targets where it's signed

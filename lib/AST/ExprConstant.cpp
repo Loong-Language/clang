@@ -7343,6 +7343,7 @@ EvaluateBuiltinClassifyType(QualType T, const LangOptions &LangOpts) {
     // Loong types.
     case BuiltinType::Input:
     case BuiltinType::Output:
+    case BuiltinType::Wire:
       return GCCTypeClass::Bool;
 
     case BuiltinType::Char_U:

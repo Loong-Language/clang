@@ -3650,6 +3650,10 @@ void Parser::ParseDeclarationSpecifiers(DeclSpec &DS,
                                      DiagID, Policy);
       break;
     }
+    case tok::kw_wire:
+      isInvalid = DS.SetTypeSpecType(DeclSpec::TST_wire, Loc, PrevSpec,
+                                     DiagID, Policy);
+      break;
 
     case tok::kw_bool:
     case tok::kw__Bool:
@@ -4757,6 +4761,7 @@ bool Parser::isTypeSpecifierQualifier() {
     // Loong types.
   case tok::kw_input:
   case tok::kw_output:
+  case tok::kw_wire:
 
     // struct-or-union-specifier (C99) or class-specifier (C++)
   case tok::kw_class:
@@ -4920,6 +4925,7 @@ bool Parser::isDeclarationSpecifier(bool DisambiguatingWithExpression) {
     // Loong types.
   case tok::kw_input:
   case tok::kw_output:
+  case tok::kw_wire:
 
     // struct-or-union-specifier (C99) or class-specifier (C++)
   case tok::kw_class:
@@ -6925,6 +6931,7 @@ bool Parser::TryAltiVecVectorTokenOutOfLine() {
   // Loong types.
   case tok::kw_input:
   case tok::kw_output:
+  case tok::kw_wire:
 
   case tok::kw___bool:
   case tok::kw___pixel:
@@ -6963,6 +6970,7 @@ bool Parser::TryAltiVecTokenOutOfLine(DeclSpec &DS, SourceLocation Loc,
     // Loong types.
     case tok::kw_input:
     case tok::kw_output:
+    case tok::kw_wire:
 
     case tok::kw___bool:
     case tok::kw___pixel:

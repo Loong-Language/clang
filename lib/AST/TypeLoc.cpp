@@ -331,6 +331,8 @@ TypeSpecifierType BuiltinTypeLoc::getWrittenTypeSpec() const {
     return TST_input;
   case BuiltinType::Output:
     return TST_output;
+  case BuiltinType::Wire:
+    return TST_wire;
 
   case BuiltinType::UChar:
   case BuiltinType::UShort:

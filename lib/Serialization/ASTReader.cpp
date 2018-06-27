@@ -6970,6 +6970,9 @@ QualType ASTReader::GetType(TypeID ID) {
     case PREDEF_TYPE_OUTPUT_ID:
       T = Context.OutputTy;
       break;
+    case PREDEF_TYPE_WIRE_ID:
+      T = Context.WireTy;
+      break;
 
     case PREDEF_TYPE_BUILTIN_FN:
       T = Context.BuiltinFnTy;
