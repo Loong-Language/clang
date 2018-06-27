@@ -851,7 +851,6 @@ bool Sema::containsUnexpandedParameterPacks(Declarator &D) {
   case TST_unknown_anytype:
   case TST_error:
   // Loong types.
-  case TST_logic:
   case TST_input:
   case TST_output:
     break;

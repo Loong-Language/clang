@@ -1268,7 +1268,6 @@ void ASTContext::InitBuiltinTypes(const TargetInfo &Target,
   InitBuiltinType(HalfTy, BuiltinType::Half);
 
   // Loong: logic and other types
-  InitBuiltinType(LogicTy, BuiltinType::Logic);
   InitBuiltinType(InputTy, BuiltinType::Input);
   InitBuiltinType(OutputTy, BuiltinType::Output);
 
@@ -1767,7 +1766,7 @@ TypeInfo ASTContext::getTypeInfoImpl(const Type *T) const {
       Align = 8;
       break;
     // Loong types.
-    case BuiltinType::Logic:
+    case BuiltinType::Input:
 
     case BuiltinType::Bool:
       Width = Target->getBoolWidth();
@@ -5431,7 +5430,6 @@ unsigned ASTContext::getIntegerRank(const Type *T) const {
   switch (cast<BuiltinType>(T)->getKind()) {
   default: llvm_unreachable("getIntegerRank(): not a built-in integer");
   // Loong types.
-  case BuiltinType::Logic:
   case BuiltinType::Input:
   case BuiltinType::Output:
 
@@ -6352,7 +6350,6 @@ static char getObjCEncodingForPrimitiveKind(const ASTContext *C,
       llvm_unreachable("invalid builtin type for @encode");
 
     // Loong types.
-    case BuiltinType::Logic: return 'l';
     case BuiltinType::Input: return 'I';
     case BuiltinType::Output: return 'o';
     }
@@ -9082,11 +9079,6 @@ static QualType DecodeTypeFromStr(const char *&Str, const ASTContext &Context,
   switch (*Str++) {
   default: llvm_unreachable("Unknown builtin type letter!");
   // Loong types.
-  case 'l':
-    assert(HowLong == 0 && !Signed && !Unsigned &&
-           "Bad modifiers used with 'l'!");
-    Type = Context.LogicTy;
-    break;
   case 'I':
     assert(HowLong == 0 && !Signed && !Unsigned &&
            "Bad modifiers used with 'I'!");

@@ -327,8 +327,6 @@ TypeSpecifierType BuiltinTypeLoc::getWrittenTypeSpec() const {
   case BuiltinType::WChar_U:
     return TST_wchar;
   // Loong types.
-  case BuiltinType::Logic:
-    return TST_logic;
   case BuiltinType::Input:
     return TST_input;
   case BuiltinType::Output:

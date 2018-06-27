@@ -1863,7 +1863,6 @@ void MicrosoftCXXNameMangler::mangleType(const BuiltinType *T, Qualifiers,
     Out << "_N";
     break;
   // Loong types.
-  case BuiltinType::Logic:
   case BuiltinType::Input:
   case BuiltinType::Output:
 

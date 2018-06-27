@@ -6964,9 +6964,6 @@ QualType ASTReader::GetType(TypeID ID) {
       break;
 
     // Loong types.
-    case PREDEF_TYPE_LOGIC_ID:
-      T = Context.LogicTy;
-      break;
     case PREDEF_TYPE_INPUT_ID:
       T = Context.InputTy;
       break;

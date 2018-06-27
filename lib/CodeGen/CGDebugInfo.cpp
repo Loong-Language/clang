@@ -658,7 +658,6 @@ llvm::DIType *CGDebugInfo::CreateType(const BuiltinType *BT) {
     return getOrCreateStructPtrType("opencl_reserve_id_t", OCLReserveIDDITy);
 
   // Loong types.
-  case BuiltinType::Logic:
   case BuiltinType::Input:
   case BuiltinType::Output:
 

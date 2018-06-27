@@ -309,7 +309,6 @@ public:
 #include "clang/Basic/OpenCLImageTypes.def"
   static const TST TST_error = clang::TST_error;
   // Loong types
-  static const TST TST_logic = clang::TST_logic;
   static const TST TST_input = clang::TST_input;
   static const TST TST_output = clang::TST_output;
 

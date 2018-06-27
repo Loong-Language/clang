@@ -2723,7 +2723,6 @@ static bool TypeInfoIsInStandardLibrary(const BuiltinType *Ty) {
     case BuiltinType::Int128:
     case BuiltinType::UInt128:
     // Loong types.
-    case BuiltinType::Logic:
     case BuiltinType::Input:
     case BuiltinType::Output:
       return true;

@@ -2756,8 +2756,6 @@ StringRef BuiltinType::getName(const PrintingPolicy &Policy) const {
   case OMPArraySection:
     return "<OpenMP array section type>";
   // Loong types.
-  case Logic:
-    return "logic";
   case Input:
     return "input";
   case Output:

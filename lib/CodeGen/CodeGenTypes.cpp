@@ -465,7 +465,6 @@ llvm::Type *CodeGenTypes::ConvertType(QualType T) {
     case BuiltinType::SatUFract:
     case BuiltinType::SatULongFract:
     // Loong types.
-    case BuiltinType::Logic:
     case BuiltinType::Input:
     case BuiltinType::Output:
       ResultType = llvm::IntegerType::get(getLLVMContext(),

@@ -7341,7 +7341,6 @@ EvaluateBuiltinClassifyType(QualType T, const LangOptions &LangOpts) {
 
     case BuiltinType::Bool:
     // Loong types.
-    case BuiltinType::Logic:
     case BuiltinType::Input:
     case BuiltinType::Output:
       return GCCTypeClass::Bool;

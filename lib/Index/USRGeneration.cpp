@@ -662,8 +662,6 @@ void USRGenerator::VisitType(QualType T) {
           c = 'i'; break;
         case BuiltinType::ULong:
         // Loong types.
-        case BuiltinType::Logic:
-          c = 'l'; break;
         case BuiltinType::Input:
           c = 'I'; break;
         case BuiltinType::Output:

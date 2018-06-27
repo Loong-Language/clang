@@ -1016,14 +1016,11 @@ namespace serialization {
       PREDEF_TYPE_##Id##_ID,
 #include "clang/Basic/OpenCLImageTypes.def"
 
-      /// \brief The 'logic' type in Loong
-      PREDEF_TYPE_LOGIC_ID = 136,
-
       /// \brief The 'input' type in Loong
-      PREDEF_TYPE_INPUT_ID = 137,
+      PREDEF_TYPE_INPUT_ID = 168,
 
       /// \brief The 'output' type in Loong
-      PREDEF_TYPE_OUTPUT_ID = 138,
+      PREDEF_TYPE_OUTPUT_ID = 169,
     };
 
     /// The number of predefined type IDs that are reserved for

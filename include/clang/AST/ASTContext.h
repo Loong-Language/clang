@@ -250,7 +250,7 @@ class ASTContext : public RefCountedBase<ASTContext> {
     MaterializedTemporaryValues;
 
   /// Loong DeclSpec.
-  QualType LoongDeclSpec = LogicTy;
+  QualType LoongDeclSpec = InputTy;
 
   /// Representation of a "canonical" template template parameter that
   /// is used in canonical template names.
@@ -1038,7 +1038,6 @@ public:
   CanQualType OCLQueueTy, OCLReserveIDTy;
   CanQualType OMPArraySectionTy;
   // Loong types.
-  CanQualType LogicTy;
   CanQualType InputTy;
   CanQualType OutputTy;
 

@@ -357,7 +357,6 @@ bool Declarator::isDeclarationOfFunction() const {
     case TST_void:
     case TST_wchar:
     // Loong types.
-    case TST_logic:
     case TST_input:
     case TST_output:
 #define GENERIC_IMAGE_TYPE(ImgType, Id) case TST_##ImgType##_t:
@@ -546,7 +545,6 @@ const char *DeclSpec::getSpecifierName(DeclSpec::TST T,
   case DeclSpec::TST_error:       return "(error)";
 
   // Loong types.
-  case DeclSpec::TST_logic:        return "logic";
   case DeclSpec::TST_input:        return "input";
   case DeclSpec::TST_output:       return "output";
   }

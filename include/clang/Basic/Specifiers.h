@@ -82,7 +82,6 @@ namespace clang {
 #include "clang/Basic/OpenCLImageTypes.def"
     TST_error, // erroneous type
     // Loong types
-    TST_logic,
     TST_input,
     TST_output
   };

@@ -654,7 +654,6 @@ bool PrintfSpecifier::fixType(QualType QT, const LangOptions &LangOpt,
   case BuiltinType::Int128:
   case BuiltinType::Half:
   // Loong types.
-  case BuiltinType::Logic:
   case BuiltinType::Input:
   case BuiltinType::Output:
 

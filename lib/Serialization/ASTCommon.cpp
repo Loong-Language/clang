@@ -209,9 +209,6 @@ serialization::TypeIdxFromBuiltin(const BuiltinType *BT) {
     ID = PREDEF_TYPE_OBJC_SEL;
     break;
   // Loong types.
-  case BuiltinType::Logic:
-    ID = PREDEF_TYPE_LOGIC_ID;
-    break;
   case BuiltinType::Input:
     ID = PREDEF_TYPE_INPUT_ID;
     break;

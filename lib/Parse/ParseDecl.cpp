@@ -3636,13 +3636,6 @@ void Parser::ParseDeclarationSpecifiers(DeclSpec &DS,
       break;
 
     // Loong types.
-    case tok::kw_logic: {
-      ASTContext &Context = Actions.getASTContext();
-      Context.setLoongDeclSpec(Context.LogicTy);
-      isInvalid = DS.SetTypeSpecType(DeclSpec::TST_logic, Loc, PrevSpec,
-                                     DiagID, Policy);
-      break;
-    }
     case tok::kw_input:
       isInvalid = DS.SetTypeSpecType(DeclSpec::TST_input, Loc, PrevSpec,
                                      DiagID, Policy);
@@ -4755,8 +4748,7 @@ bool Parser::isTypeSpecifierQualifier() {
 #define GENERIC_IMAGE_TYPE(ImgType, Id) case tok::kw_##ImgType##_t:
 #include "clang/Basic/OpenCLImageTypes.def"
 
-    // Loong type specifiers such as logic
-  case tok::kw_logic:
+    // Loong types.
   case tok::kw_input:
   case tok::kw_output:
 
@@ -4919,8 +4911,7 @@ bool Parser::isDeclarationSpecifier(bool DisambiguatingWithExpression) {
   case tok::kw__Decimal128:
   case tok::kw___vector:
 
-    // Loong type specifiers such as logic
-  case tok::kw_logic:
+    // Loong types.
   case tok::kw_input:
   case tok::kw_output:
 
@@ -6926,7 +6917,6 @@ bool Parser::TryAltiVecVectorTokenOutOfLine() {
   case tok::kw_double:
   case tok::kw_bool:
   // Loong types.
-  case tok::kw_logic:
   case tok::kw_input:
   case tok::kw_output:
 
@@ -6965,7 +6955,6 @@ bool Parser::TryAltiVecTokenOutOfLine(DeclSpec &DS, SourceLocation Loc,
     case tok::kw_double:
     case tok::kw_bool:
     // Loong types.
-    case tok::kw_logic:
     case tok::kw_input:
     case tok::kw_output:
 

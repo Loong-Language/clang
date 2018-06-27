@@ -2488,7 +2488,6 @@ void CXXNameMangler::mangleType(const BuiltinType *T) {
   //                 ::= Ds # char16_t
   //                 ::= Dn # std::nullptr_t (i.e., decltype(nullptr))
   //                 ::= u <source-name>    # vendor extended type
-  //                 ::= l  # Loong logic
   //                 ::= I  # Loong input
   //                 ::= o  # Loong output
   std::string type_name;
@@ -2604,9 +2603,6 @@ void CXXNameMangler::mangleType(const BuiltinType *T) {
     Out << "Dn";
     break;
   // Loong types.
-  case BuiltinType::Logic:
-    Out << 'l';
-    break;
   case BuiltinType::Input:
     Out << 'I';
     break;
