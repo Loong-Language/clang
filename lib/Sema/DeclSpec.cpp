@@ -754,12 +754,6 @@ bool DeclSpec::SetTypeSpecType(TST T, SourceLocation TagKwLoc,
   return false;
 }
 
-bool DeclSpec::isLoongType(const char *PrevSpec) {
-  if (strcmp(PrevSpec, "input") == 0 || strcmp(PrevSpec, "output") == 0)
-    return true;
-  return false;
-}
-
 bool DeclSpec::SetTypeSpecType(TST T, SourceLocation Loc,
                                const char *&PrevSpec,
                                unsigned &DiagID,
@@ -768,10 +762,8 @@ bool DeclSpec::SetTypeSpecType(TST T, SourceLocation Loc,
          "rep required for these type-spec kinds!");
   if (TypeSpecType != TST_unspecified) {
     PrevSpec = DeclSpec::getSpecifierName((TST) TypeSpecType, Policy);
-    if (!isLoongType(PrevSpec)) {
-      DiagID = diag::err_invalid_decl_spec_combination;
-      return true;
-    }
+    DiagID = diag::err_invalid_decl_spec_combination;
+    return true;
   }
   TSTLoc = Loc;
   TSTNameLoc = Loc;
