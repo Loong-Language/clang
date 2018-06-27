@@ -3636,14 +3636,20 @@ void Parser::ParseDeclarationSpecifiers(DeclSpec &DS,
       break;
 
     // Loong types.
-    case tok::kw_input:
+    case tok::kw_input: {
+      ASTContext &Context = Actions.getASTContext();
+      Context.setLoongDeclSpec(Context.InputTy);
       isInvalid = DS.SetTypeSpecType(DeclSpec::TST_input, Loc, PrevSpec,
                                      DiagID, Policy);
       break;
-    case tok::kw_output:
+    }
+    case tok::kw_output: {
+      ASTContext &Context = Actions.getASTContext();
+      Context.setLoongDeclSpec(Context.OutputTy);
       isInvalid = DS.SetTypeSpecType(DeclSpec::TST_output, Loc, PrevSpec,
                                      DiagID, Policy);
       break;
+    }
 
     case tok::kw_bool:
     case tok::kw__Bool:
