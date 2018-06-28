@@ -104,7 +104,6 @@
 
 // Loong builtins:
 BUILTIN(__assign, "bb", "")
-BUILTIN(__always, "ba", "")
 BUILTIN(__nonblock_assign, "bb", "")
 BUILTIN(__block_assign, "bb", "")
 
