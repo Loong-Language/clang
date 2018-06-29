@@ -1776,6 +1776,9 @@ Sema::DiagnoseEmptyLookup(Scope *S, CXXScopeSpec &SS, LookupResult &R,
                           std::unique_ptr<CorrectionCandidateCallback> CCC,
                           TemplateArgumentListInfo *ExplicitTemplateArgs,
                           ArrayRef<Expr *> Args, TypoExpr **Out) {
+  if (getLangOpts().Loong)
+    return true;
+
   DeclarationName Name = R.getLookupName();
 
   unsigned diagnostic = diag::err_undeclared_var_use;
