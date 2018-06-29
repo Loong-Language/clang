@@ -545,7 +545,7 @@ ExprResult Parser::ParseCastExpression(bool isUnaryExpression,
                                        NotCastExpr,
                                        isTypeCast,
                                        isVectorLiteral);
-  if (NotCastExpr)
+  if (NotCastExpr && !getLangOpts().Loong)
     Diag(Tok, diag::err_expected_expression);
   return Res;
 }
