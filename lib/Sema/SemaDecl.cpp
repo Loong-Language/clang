@@ -7486,8 +7486,7 @@ void Sema::CheckVariableDeclarationType(VarDecl *NewVD) {
   if (T->isVoidType()) {
     // C++98 [dcl.stc]p5: The extern specifier can be applied only to the names
     //                    of objects and functions.
-    if ((NewVD->isThisDeclarationADefinition() || getLangOpts().CPlusPlus) &&
-        !getLangOpts().Loong) {
+    if (NewVD->isThisDeclarationADefinition() || getLangOpts().CPlusPlus) {
       Diag(NewVD->getLocation(), diag::err_typecheck_decl_incomplete_type)
         << T;
       NewVD->setInvalidDecl();
@@ -11032,7 +11031,7 @@ void Sema::ActOnInitializerError(Decl *D) {
   if (Ty->isDependentType()) return;
 
   // Require a complete type.
-  if (!Context.getLangOpts().Loong && RequireCompleteType(VD->getLocation(),
+  if (RequireCompleteType(VD->getLocation(),
                           Context.getBaseElementType(Ty),
                           diag::err_typecheck_decl_incomplete_type)) {
     VD->setInvalidDecl();

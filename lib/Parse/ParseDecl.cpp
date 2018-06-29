@@ -3714,6 +3714,7 @@ void Parser::ParseDeclarationSpecifiers(DeclSpec &DS,
     // class-specifier:
     case tok::kw_class:
     case tok::kw_struct:
+    case tok::kw_hmodule:
     case tok::kw___interface:
     case tok::kw_union: {
       tok::TokenKind Kind = Tok.getKind();
@@ -3837,11 +3838,6 @@ void Parser::ParseDeclarationSpecifiers(DeclSpec &DS,
     case tok::kw___local:
     case tok::kw___constant:
       ParseOpenCLQualifiers(DS.getAttributes());
-      break;
-
-    case tok::kw_hmodule:
-      isInvalid = DS.SetTypeSpecType(DeclSpec::TST_void, Loc, PrevSpec,
-                                     DiagID, Policy);
       break;
 
     case tok::less:
