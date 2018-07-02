@@ -668,6 +668,8 @@ void USRGenerator::VisitType(QualType T) {
           c = 'o'; break;
         case BuiltinType::Wire:
           c = 'W'; break;
+        case BuiltinType::Posedge:
+          c = 'r'; break;
 
         case BuiltinType::ULongLong:
           c = 'k'; break;

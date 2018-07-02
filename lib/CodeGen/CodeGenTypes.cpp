@@ -468,6 +468,7 @@ llvm::Type *CodeGenTypes::ConvertType(QualType T) {
     case BuiltinType::Input:
     case BuiltinType::Output:
     case BuiltinType::Wire:
+    case BuiltinType::Posedge:
       ResultType = llvm::IntegerType::get(getLLVMContext(),
                                  static_cast<unsigned>(Context.getTypeSize(T)));
       break;

@@ -1024,6 +1024,9 @@ namespace serialization {
 
       /// \brief The 'wire' type in Loong
       PREDEF_TYPE_WIRE_ID = 170,
+
+      /// \brief The 'posedge' type in Loong
+      PREDEF_TYPE_POSEDGE_ID = 171,
     };
 
     /// The number of predefined type IDs that are reserved for

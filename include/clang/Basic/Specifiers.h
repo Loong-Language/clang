@@ -84,7 +84,8 @@ namespace clang {
     // Loong types
     TST_input,
     TST_output,
-    TST_wire
+    TST_wire,
+    TST_posedge
   };
 
   /// Structure that packs information about the type specifiers that

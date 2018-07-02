@@ -1041,6 +1041,7 @@ public:
   CanQualType InputTy;
   CanQualType OutputTy;
   CanQualType WireTy;
+  CanQualType PosedgeTy;
 
   // Types for deductions in C++0x [stmt.ranged]'s desugaring. Built on demand.
   mutable QualType AutoDeductTy;     // Deduction against 'auto'.

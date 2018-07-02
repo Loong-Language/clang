@@ -312,6 +312,7 @@ public:
   static const TST TST_input = clang::TST_input;
   static const TST TST_output = clang::TST_output;
   static const TST TST_wire = clang::TST_wire;
+  static const TST TST_posedge = clang::TST_posedge;
 
   // type-qualifiers
   enum TQ {   // NOTE: These flags must be kept in sync with Qualifiers::TQ.

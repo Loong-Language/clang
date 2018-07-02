@@ -854,6 +854,7 @@ bool Sema::containsUnexpandedParameterPacks(Declarator &D) {
   case TST_input:
   case TST_output:
   case TST_wire:
+  case TST_posedge:
     break;
   }
 

@@ -333,6 +333,8 @@ TypeSpecifierType BuiltinTypeLoc::getWrittenTypeSpec() const {
     return TST_output;
   case BuiltinType::Wire:
     return TST_wire;
+  case BuiltinType::Posedge:
+    return TST_posedge;
 
   case BuiltinType::UChar:
   case BuiltinType::UShort:

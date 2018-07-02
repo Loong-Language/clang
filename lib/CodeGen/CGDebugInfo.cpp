@@ -661,6 +661,7 @@ llvm::DIType *CGDebugInfo::CreateType(const BuiltinType *BT) {
   case BuiltinType::Input:
   case BuiltinType::Output:
   case BuiltinType::Wire:
+  case BuiltinType::Posedge:
 
   case BuiltinType::UChar:
   case BuiltinType::Char_U:

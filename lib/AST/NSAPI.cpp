@@ -493,6 +493,7 @@ NSAPI::getNSNumberFactoryMethodKind(QualType T) const {
   case BuiltinType::Input:
   case BuiltinType::Output:
   case BuiltinType::Wire:
+  case BuiltinType::Posedge:
     break;
   }
   

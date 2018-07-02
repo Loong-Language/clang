@@ -1866,6 +1866,7 @@ void MicrosoftCXXNameMangler::mangleType(const BuiltinType *T, Qualifiers,
   case BuiltinType::Input:
   case BuiltinType::Output:
   case BuiltinType::Wire:
+  case BuiltinType::Posedge:
 
   case BuiltinType::Char16:
     Out << "_S";
