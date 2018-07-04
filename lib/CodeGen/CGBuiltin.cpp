@@ -2722,6 +2722,12 @@ RValue CodeGenFunction::EmitBuiltinExpr(const FunctionDecl *FD,
 		    llvm::makeArrayRef(SequentialLogic->getType()));
     return RValue::get(Builder.CreateCall(F, SequentialLogic));
   }
+  case Builtin::BI__delay: {
+    Value *Delay = EmitScalarExpr(E->getArg(0));
+    Value *F = CGM.getIntrinsic(Intrinsic::__delay,
+		    llvm::makeArrayRef(Delay->getType()));
+    return RValue::get(Builder.CreateCall(F, Delay));
+  }
 
   case Builtin::BI__builtin_addcb:
   case Builtin::BI__builtin_addcs:

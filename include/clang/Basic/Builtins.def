@@ -106,6 +106,7 @@
 BUILTIN(__assign, "bb", "")
 BUILTIN(__nonblock_assign, "bb", "")
 BUILTIN(__block_assign, "bb", "")
+BUILTIN(__delay, "bi", "")
 
 // Standard libc/libm functions:
 BUILTIN(__builtin_atan2 , "ddd"  , "Fne")
