@@ -7092,8 +7092,10 @@ public:
   bool Success(const llvm::APSInt &SI, const Expr *E, APValue &Result) {
     assert(E->getType()->isIntegralOrEnumerationType() &&
            "Invalid evaluation result.");
-    assert(SI.isSigned() == E->getType()->isSignedIntegerOrEnumerationType() &&
-           "Invalid evaluation result.");
+    if (!Info.getLangOpts().Loong) {
+      assert(SI.isSigned() == E->getType()->isSignedIntegerOrEnumerationType() &&
+             "Invalid evaluation result.");
+    }
     assert(SI.getBitWidth() == Info.Ctx.getIntWidth(E->getType()) &&
            "Invalid evaluation result.");
     Result = APValue(SI);
