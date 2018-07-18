@@ -435,7 +435,11 @@ namespace clang {
         LClose = (P.*Consumer)();
         return false;
       }
-      
+
+      if (P.getLangOpts().Loong) {
+        return true;
+      }
+
       return diagnoseMissingClose();
     }
     void skipToEnd();

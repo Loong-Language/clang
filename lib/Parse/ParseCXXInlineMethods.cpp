@@ -848,11 +848,15 @@ bool Parser::ConsumeAndStoreFunctionPrologue(CachedTokens &Toks) {
       }
     } else if (Tok.isNot(tok::l_paren) && Tok.isNot(tok::l_brace)) {
       // We found something weird in a mem-initializer-id.
-      if (getLangOpts().CPlusPlus11)
+      if (getLangOpts().CPlusPlus11 && !getLangOpts().Loong)
         return Diag(Tok.getLocation(), diag::err_expected_either)
                << tok::l_paren << tok::l_brace;
-      else
+      else {
+        if (getLangOpts().Loong) {
+          return true;
+        }
         return Diag(Tok.getLocation(), diag::err_expected) << tok::l_paren;
+      }
     }
 
     tok::TokenKind kind = Tok.getKind();
