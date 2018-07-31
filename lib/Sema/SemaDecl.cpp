@@ -14612,8 +14612,9 @@ ExprResult Sema::VerifyBitField(SourceLocation FieldLoc,
     if (FieldName && !getLangOpts().Loong)
       return Diag(FieldLoc, diag::err_not_integral_type_bitfield)
         << FieldName << FieldTy << BitWidth->getSourceRange();
-    return Diag(FieldLoc, diag::err_not_integral_type_anon_bitfield)
-      << FieldTy << BitWidth->getSourceRange();
+    if (!getLangOpts().Loong)
+      return Diag(FieldLoc, diag::err_not_integral_type_anon_bitfield)
+        << FieldTy << BitWidth->getSourceRange();
   } else if (DiagnoseUnexpandedParameterPack(const_cast<Expr *>(BitWidth),
                                              UPPC_BitFieldWidth))
     return ExprError();
@@ -14633,7 +14634,7 @@ ExprResult Sema::VerifyBitField(SourceLocation FieldLoc,
     *ZeroWidth = false;
 
   // Zero-width bitfield is ok for anonymous field.
-  if (Value == 0 && FieldName)
+  if (Value == 0 && FieldName && !getLangOpts().Loong)
     return Diag(FieldLoc, diag::err_bitfield_has_zero_width) << FieldName;
 
   if (Value.isSigned() && Value.isNegative()) {
