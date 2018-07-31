@@ -2880,7 +2880,7 @@ Parser::ParseCXXClassMemberDeclaration(AccessSpecifier AS,
       break;
   }
 
-  if (ExpectSemi &&
+  if (ExpectSemi && !getLangOpts().Loong &&
       ExpectAndConsume(tok::semi, diag::err_expected_semi_decl_list)) {
     // Skip to end of block or statement.
     SkipUntil(tok::r_brace, StopAtSemi | StopBeforeMatch);

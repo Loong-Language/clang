@@ -5833,10 +5833,11 @@ void Parser::ParseDirectDeclarator(Declarator &D) {
         ConsumeToken();
         goto PastIdentifier;
       }
-      Diag(getMissingDeclaratorIdLoc(D, Tok.getLocation()),
-           diag::err_expected_member_name_or_semi)
-          << (D.getDeclSpec().isEmpty() ? SourceRange()
-                                        : D.getDeclSpec().getSourceRange());
+      if (!getLangOpts().Loong)
+        Diag(getMissingDeclaratorIdLoc(D, Tok.getLocation()),
+             diag::err_expected_member_name_or_semi)
+            << (D.getDeclSpec().isEmpty() ? SourceRange()
+                                          : D.getDeclSpec().getSourceRange());
     } else if (getLangOpts().CPlusPlus) {
       if (Tok.isOneOf(tok::period, tok::arrow))
         Diag(Tok, diag::err_invalid_operator_on_type) << Tok.is(tok::arrow);
