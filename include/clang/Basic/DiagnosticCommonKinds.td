@@ -61,8 +61,8 @@ def err_invalid_numeric_udl : Error<
 
 let CategoryName = "Parse Issue" in {
 
-def err_expected : Error<"expected %0">;
-def err_expected_either : Error<"expected %0 or %1">;
+def err_expected : Error<"DEBUG: expected %0">;
+def err_expected_either : Error<"DEBUG: expected %0 or %1">;
 def err_expected_after : Error<"expected %1 after %0">;
 
 def err_param_redefinition : Error<"redefinition of parameter %0">;

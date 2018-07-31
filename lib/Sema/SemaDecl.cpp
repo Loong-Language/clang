@@ -14609,7 +14609,7 @@ ExprResult Sema::VerifyBitField(SourceLocation FieldLoc,
     // Handle incomplete types with specific error.
     if (RequireCompleteType(FieldLoc, FieldTy, diag::err_field_incomplete))
       return ExprError();
-    if (FieldName)
+    if (FieldName && !getLangOpts().Loong)
       return Diag(FieldLoc, diag::err_not_integral_type_bitfield)
         << FieldName << FieldTy << BitWidth->getSourceRange();
     return Diag(FieldLoc, diag::err_not_integral_type_anon_bitfield)
